@@ -139,6 +139,7 @@ negll_grid_vals3[which.min(negll_grid_out3),] # Extract minimum
 # here: sigma. Paste your estimated model coefficients below.
 
 negll_optim_out <- optim(par = c(2, 0, 8), calc_negll, data = data.frame(x=xi, y=yi))
+negll_optim_out
 
 # Did the numerical optimization algorithm converge?  How do you know?
 
@@ -214,7 +215,7 @@ q5_int <- negll_optim_out$par[1]
 q5_slope <- negll_optim_out$par[2]
 
 data.frame(
-  question = paste0('Q', 1:3),
+  question = paste0('Q', c(1,2,5)),
   estim_intercept = c(q1_int, q2_int, q5_int),
   estim_slope = c(q1_slope, q2_slope, q5_slope)
 )
